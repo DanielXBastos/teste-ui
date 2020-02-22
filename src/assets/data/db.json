@@ -1,0 +1,26 @@
+{
+  "client": [
+    {
+      "id": 1,
+      "createdAt": 1582306048000,
+      "updateAt": 1582306048000,
+      "name": "Teste",
+      "email": "teste@email.com",
+      "telefone": "31 99999-9999"
+    },
+    {
+      "id": 2,
+      "createdAt": 1582315806000,
+      "updateAt": 1582315806000,
+      "name": "José das Couves",
+      "email": "zedascouves@email.com",
+      "telefone": "31 99923-9999"
+    },
+    {
+      "name": "Daniel Cristian",
+      "email": "daniel@gmail.com",
+      "telefone": "(31) 2309-2452",
+      "id": 3
+    }
+  ]
+}
