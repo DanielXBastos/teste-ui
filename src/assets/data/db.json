@@ -22,5 +22,87 @@
       "telefone": "(31) 2309-2452",
       "id": 3
     }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "createdAt": 1581703939000,
+      "updateAt": 1581703939000,
+      "name": "Arroz",
+      "description": null,
+      "priceHistoryList": [
+        {
+          "id": 3,
+          "createdAt": 1581703939000,
+          "updateAt": 1581703939000,
+          "price": 10.56,
+          "currentPrice": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "createdAt": 1581709268000,
+      "updateAt": 1581709268000,
+      "name": "string",
+      "description": "string",
+      "priceHistoryList": [
+        {
+          "id": 6,
+          "createdAt": 1581709268000,
+          "updateAt": 1581709268000,
+          "price": 10,
+          "currentPrice": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "createdAt": 1582393399000,
+      "updateAt": 1582393399000,
+      "name": "Violão",
+      "description": "Instrumento de corda",
+      "priceHistoryList": [
+        {
+          "id": 35,
+          "createdAt": 1582393399000,
+          "updateAt": 1582393399000,
+          "price": 500,
+          "currentPrice": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "createdAt": 1582393409000,
+      "updateAt": 1582393409000,
+      "name": "Cavaco",
+      "description": "Instrumento de corda",
+      "priceHistoryList": [
+        {
+          "id": 36,
+          "createdAt": 1582393409000,
+          "updateAt": 1582393409000,
+          "price": 250,
+          "currentPrice": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "createdAt": 1582393435000,
+      "updateAt": 1582393435000,
+      "name": "Vassoura",
+      "description": "Produto de limpeza",
+      "priceHistoryList": [
+        {
+          "id": 37,
+          "createdAt": 1582393435000,
+          "updateAt": 1582393435000,
+          "price": 50,
+          "currentPrice": true
+        }
+      ]
+    }
   ]
 }
