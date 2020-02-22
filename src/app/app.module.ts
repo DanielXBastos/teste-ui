@@ -1,9 +1,10 @@
-import { ClientsModule } from './clients/clients.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ProductsModule } from './products/products.module';
+import { ClientsModule } from './clients/clients.module';
 import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 
@@ -16,7 +17,8 @@ import { AppComponent } from './app.component';
     CoreModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ClientsModule
+    ClientsModule,
+    ProductsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

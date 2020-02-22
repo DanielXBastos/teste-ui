@@ -41,22 +41,6 @@
       ]
     },
     {
-      "id": 2,
-      "createdAt": 1581709268000,
-      "updateAt": 1581709268000,
-      "name": "string",
-      "description": "string",
-      "priceHistoryList": [
-        {
-          "id": 6,
-          "createdAt": 1581709268000,
-          "updateAt": 1581709268000,
-          "price": 10,
-          "currentPrice": true
-        }
-      ]
-    },
-    {
       "id": 3,
       "createdAt": 1582393399000,
       "updateAt": 1582393399000,
