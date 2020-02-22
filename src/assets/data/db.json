@@ -88,5 +88,159 @@
         }
       ]
     }
+  ],
+  "sale": [
+    {
+      "id": 8,
+      "createdAt": 1582408644000,
+      "updateAt": 1582408644000,
+      "client": {
+        "id": 1,
+        "createdAt": 1582306048000,
+        "updateAt": 1582306048000,
+        "name": "Teste",
+        "email": "teste@email.com",
+        "telefone": "31 99999-9999"
+      },
+      "productList": [
+        {
+          "id": 20,
+          "createdAt": 1582393435000,
+          "updateAt": 1582393435000,
+          "name": "Vassoura",
+          "description": "Produto de limpeza",
+          "priceHistoryList": [
+            {
+              "id": 37,
+              "createdAt": 1582393435000,
+              "updateAt": 1582393435000,
+              "price": 50,
+              "currentPrice": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "createdAt": 1582408797000,
+      "updateAt": 1582408797000,
+      "client": {
+        "id": 1,
+        "createdAt": 1582306048000,
+        "updateAt": 1582306048000,
+        "name": "Teste",
+        "email": "teste@email.com",
+        "telefone": "31 99999-9999"
+      },
+      "productList": [
+        {
+          "id": 3,
+          "createdAt": 1581704936000,
+          "updateAt": 1581704936000,
+          "name": "Arroz",
+          "description": null,
+          "priceHistoryList": [
+            {
+              "id": 4,
+              "createdAt": 1581704936000,
+              "updateAt": 1581704936000,
+              "price": 10.56,
+              "currentPrice": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "createdAt": 1582408848000,
+      "updateAt": 1582408848000,
+      "client": {
+        "id": 3,
+        "createdAt": 1582323961000,
+        "updateAt": 1582323961000,
+        "name": "Daniel Bastos",
+        "email": "Daniel@email.com",
+        "telefone": "31 99123-9119"
+      },
+      "productList": [
+        {
+          "id": 4,
+          "createdAt": 1581704990000,
+          "updateAt": 1581704990000,
+          "name": "Arroz",
+          "description": null,
+          "priceHistoryList": [
+            {
+              "id": 5,
+              "createdAt": 1581704990000,
+              "updateAt": 1581704990000,
+              "price": 10.5,
+              "currentPrice": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "report": [
+    {
+      "id": 8,
+      "client": {
+        "id": 1,
+        "createdAt": 1582306048000,
+        "updateAt": 1582306048000,
+        "name": "Teste",
+        "email": "teste@email.com",
+        "telefone": "31 99999-9999"
+      },
+      "products": [
+        {
+          "id": 20,
+          "name": "Vassoura",
+          "description": "Produto de limpeza",
+          "price": 50
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "client": {
+        "id": 1,
+        "createdAt": 1582306048000,
+        "updateAt": 1582306048000,
+        "name": "Teste",
+        "email": "teste@email.com",
+        "telefone": "31 99999-9999"
+      },
+      "products": [
+        {
+          "id": 3,
+          "name": "Arroz",
+          "description": null,
+          "price": 10.56
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "client": {
+        "id": 3,
+        "createdAt": 1582323961000,
+        "updateAt": 1582323961000,
+        "name": "Daniel Bastos",
+        "email": "Daniel@email.com",
+        "telefone": "31 99123-9119"
+      },
+      "products": [
+        {
+          "id": 4,
+          "name": "Arroz",
+          "description": null,
+          "price": 10.5
+        }
+      ]
+    }
   ]
 }
