@@ -17,7 +17,7 @@ export class ClientService {
   // Headers
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  }
+  };
 
   // Obtem todos os clientes
   getClients(): Observable<Client[]> {
@@ -33,7 +33,7 @@ export class ClientService {
       .pipe(
         retry(2),
         catchError(this.handleError)
-      )
+      );
   }
 
   // salva um cliente
@@ -42,7 +42,7 @@ export class ClientService {
       .pipe(
         retry(2),
         catchError(this.handleError)
-      )
+      );
   }
 
   // utualiza um cliente
@@ -51,7 +51,7 @@ export class ClientService {
       .pipe(
         retry(1),
         catchError(this.handleError)
-      )
+      );
   }
 
   // deleta um cliente
@@ -60,7 +60,7 @@ export class ClientService {
       .pipe(
         retry(1),
         catchError(this.handleError)
-      )
+      );
   }
 
   // Manipulação de erros
@@ -75,6 +75,6 @@ export class ClientService {
     }
     console.log(errorMessage);
     return throwError(errorMessage);
-  };
+  }
 
 }
