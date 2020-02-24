@@ -7,6 +7,7 @@ import { ProductsModule } from './products/products.module';
 import { ClientsModule } from './clients/clients.module';
 import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
+import { SalesModule } from './sales/sales.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     BrowserAnimationsModule,
     ClientsModule,
-    ProductsModule
+    ProductsModule,
+    SalesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
