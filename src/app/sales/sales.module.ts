@@ -18,6 +18,6 @@ import { SaleReportComponent } from './sale-report/sale-report.component';
     DropdownModule,
     CommonModule
   ],
-  exports: [SaleCrudComponent, SaleReportComponent]
+  exports: []
 })
 export class SalesModule { }

@@ -1,62 +1,71 @@
-<div class="card list-client">
-  <h5 class="card-header">Lista de Clientes</h5>
-  <div class="card-body">
-    <p-table [columns]="cols" [value]="clients" [paginator]="true" [rows]="5" [responsive]="true">
-      <ng-template pTemplate="header">
-        <tr>
-          <th *ngFor="let col of cols" scope="col">
-            {{col.header}}
-          </th>
-          <th></th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-client>
-        <tr>
-          <td>{{client.id}}</td>
-          <td>{{client.name}}</td>
-          <td>{{client.email}}</td>
-          <td>{{client.telefone}}</td>
-          <td>
-            <button pButton type="button" class="btn btn-warning btn-sm" (click)="editClient(client)">Editar</button>
-            <button pButton type="button" class="btn btn-danger btn-sm ml-1"
-              (click)="deleteClient(client)">Deletar</button>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
-</div>
+<div class="container">
+  <div class="ui-g-12">
 
-<div class="card add-client">
-  <h5 class="card-header">Adicionar/Atualizar cliente</h5>
-  <div class="card-body">
-    <form id="add-form" (ngSubmit)="f.form.valid && saveClient(f)" #f="ngForm" novalidate>
-      <div class="form-group">
-        <label for="name">Nome</label>
-        <input type="text" [(ngModel)]="client.name" id="name" name="name" #name="ngModel" required class="form-control"
-          [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" placeholder="Digite o nome">
-        <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
-          <div *ngIf="name.errors.required">Nome é obrigatório</div>
-        </div>
+    <div class="card list-client">
+      <h5 class="card-header">Lista de Clientes</h5>
+      <div class="card-body">
+        <p-table [columns]="cols" [value]="clients" [paginator]="true" [rows]="5" [responsive]="true">
+          <ng-template pTemplate="header">
+            <tr>
+              <th *ngFor="let col of cols" scope="col">
+                {{col.header}}
+              </th>
+              <th></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-client>
+            <tr>
+              <td>{{client.id}}</td>
+              <td>{{client.name}}</td>
+              <td>{{client.email}}</td>
+              <td>{{client.telefone}}</td>
+              <td>
+                <button pButton type="button" class="btn btn-warning btn-sm"
+                  (click)="editClient(client)">Editar</button>
+                <button pButton type="button" class="btn btn-danger btn-sm ml-1"
+                  (click)="deleteClient(client)">Deletar</button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
       </div>
-      <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="text" [(ngModel)]="client.email" id="email" name="email" #email="ngModel" required
-          class="form-control" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" placeholder="Digite o e-mail">
-        <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-          <div *ngIf="email.errors.required">E-mail é obrigatória</div>
-        </div>
+    </div>
+
+    <div class="card add-client">
+      <h5 class="card-header">Adicionar/Atualizar cliente</h5>
+      <div class="card-body">
+        <form id="add-form" (ngSubmit)="f.form.valid && saveClient(f)" #f="ngForm" novalidate>
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" [(ngModel)]="client.name" id="name" name="name" #name="ngModel" required
+              class="form-control" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"
+              placeholder="Digite o nome">
+            <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+              <div *ngIf="name.errors.required">Nome é obrigatório</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="text" [(ngModel)]="client.email" id="email" name="email" #email="ngModel" required
+              class="form-control" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+              placeholder="Digite o e-mail">
+            <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+              <div *ngIf="email.errors.required">E-mail é obrigatória</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="text" [(ngModel)]="client.telefone" id="telefone" name="telefone" #telefone="ngModel" required
+              class="form-control" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+              placeholder="Digite o e-mail">
+            <div *ngIf="f.submitted && telefone.invalid" class="invalid-feedback">
+              <div *ngIf="telefone.errors.required">Telefone é obrigatório</div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-add-car">Salvar</button>
+          <button type="reset" class="btn btn-secondary btn-add-car" (click)="cleanForm(f)">Cancelar</button>
+        </form>
       </div>
-      <div class="form-group">
-        <label for="telefone">Telefone</label>
-        <input type="text" [(ngModel)]="client.telefone" id="telefone" name="telefone" #telefone="ngModel" required
-          class="form-control" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" placeholder="Digite o e-mail">
-        <div *ngIf="f.submitted && telefone.invalid" class="invalid-feedback">
-          <div *ngIf="telefone.errors.required">Telefone é obrigatório</div>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary btn-add-car">Salvar</button>
-      <button type="reset" class="btn btn-secondary btn-add-car" (click)="cleanForm(f)">Cancelar</button>
-    </form>
+    </div>
   </div>
 </div>

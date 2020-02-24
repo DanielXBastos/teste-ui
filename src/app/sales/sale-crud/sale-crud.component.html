@@ -1,7 +1,7 @@
 <div class="container">
   <div class="ui-g-12">
     <form class="card sale" id="sale-form" (ngSubmit)="f.form.valid && saveSale(f)" #f="ngForm" novalidate>
-      <h5>Efetuar venda</h5>
+      <h5 class="card-header">Efetuar venda</h5>
       <div class="ui-g-12 ui-md-6 ui-fluid form-group">
         <label>Cliente</label>
         <p-dropdown [options]="selectClients" [(ngModel)]="selectedClient" optionLabel="name" placeholder="Selecione"

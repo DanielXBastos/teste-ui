@@ -15,6 +15,6 @@ import { ProductCrudComponent } from './product-crud/product-crud.component';
     FormsModule,
     CommonModule
   ],
-  exports:  [ProductCrudComponent]
+  exports:  []
 })
 export class ProductsModule { }

@@ -10,9 +10,10 @@
 
   <ul class="navbar-menu" [hidden]="!exibindoMenu">
     <li class="navbar-titulo">Menu</li>
-    <li class="navbar-menuitem"><a href="#">Clientes</a></li>
-    <li class="navbar-menuitem"><a href="#">Produtos</a></li>
-    <li class="navbar-menuitem"><a href="#">Compras</a></li>
+    <li class="navbar-menuitem" routerLinkActive="ativo"><a routerLink="/client">Clientes</a></li>
+    <li class="navbar-menuitem" routerLinkActive="ativo"><a routerLink="/product">Produtos</a></li>
+    <li class="navbar-menuitem" routerLinkActive="ativo"><a routerLink="/sale">Vendas</a></li>
+    <li class="navbar-menuitem" routerLinkActive="ativo"><a routerLink="/report">Relatório de Vendas</a></li>
   </ul>
 
 </nav>

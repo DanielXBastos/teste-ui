@@ -31,6 +31,7 @@ export class ClientCrudComponent implements OnInit {
   // defini se um client será criado ou atualizado
   saveClient(form: NgForm) {
     if (this.client.id !== undefined) {
+      console.log(this.client);
       this.clientService.updateClient(this.client).subscribe(() => {
         this.cleanForm(form);
       });

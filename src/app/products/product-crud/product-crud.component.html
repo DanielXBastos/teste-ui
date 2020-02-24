@@ -1,62 +1,70 @@
-<div class="card list-product">
-  <h5 class="card-header">Lista de Produtos</h5>
-  <div class="card-body">
-    <p-table [columns]="cols" [value]="products" [paginator]="true" [rows]="5" [responsive]="true">
-      <ng-template pTemplate="header">
-        <tr>
-          <th *ngFor="let col of cols" scope="col">
-            {{col.header}}
-          </th>
-          <th></th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-product>
-        <tr>
-          <td>{{product.id}}</td>
-          <td>{{product.name}}</td>
-          <td>{{product.description}}</td>
-          <td>{{product.price}}</td>
-          <td>
-            <button pButton type="button" class="btn btn-warning btn-sm" (click)="editProduct(product)">Editar</button>
-            <button pButton type="button" class="btn btn-danger btn-sm ml-1"
-              (click)="deleteProduct(product)">Deletar</button>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
-</div>
+<div class="container">
+  <div class="ui-g-12">
+    <div class="card list-product">
+      <h5 class="card-header">Lista de Produtos</h5>
+      <div class="card-body">
+        <p-table [columns]="cols" [value]="products" [paginator]="true" [rows]="5" [responsive]="true">
+          <ng-template pTemplate="header">
+            <tr>
+              <th *ngFor="let col of cols" scope="col">
+                {{col.header}}
+              </th>
+              <th></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-product>
+            <tr>
+              <td>{{product.id}}</td>
+              <td>{{product.name}}</td>
+              <td>{{product.description}}</td>
+              <td>{{product.price}}</td>
+              <td>
+                <button pButton type="button" class="btn btn-warning btn-sm"
+                  (click)="editProduct(product)">Editar</button>
+                <button pButton type="button" class="btn btn-danger btn-sm ml-1"
+                  (click)="deleteProduct(product)">Deletar</button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
 
-<div class="card add-product">
-  <h5 class="card-header">Adicionar/Atualizar produto</h5>
-  <div class="card-body">
-    <form id="add-form" (ngSubmit)="f.form.valid && saveProduct(f)" #f="ngForm" novalidate>
-      <div class="form-group">
-        <label for="name">Nome</label>
-        <input type="text" [(ngModel)]="product.name" id="name" name="name" #name="ngModel" required class="form-control"
-          [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" placeholder="Digite o nome">
-        <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
-          <div *ngIf="name.errors.required">Nome é obrigatório</div>
-        </div>
+    <div class="card add-product">
+      <h5 class="card-header">Adicionar/Atualizar produto</h5>
+      <div class="card-body">
+        <form id="add-form" (ngSubmit)="f.form.valid && saveProduct(f)" #f="ngForm" novalidate>
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" [(ngModel)]="product.name" id="name" name="name" #name="ngModel" required
+              class="form-control" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"
+              placeholder="Digite o nome">
+            <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+              <div *ngIf="name.errors.required">Nome é obrigatório</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="description">Descrição</label>
+            <input type="text" [(ngModel)]="product.description" id="description" name="description"
+              #description="ngModel" required class="form-control"
+              [ngClass]="{ 'is-invalid': f.submitted && description.invalid }" placeholder="Digite a descrição">
+            <div *ngIf="f.submitted && description.invalid" class="invalid-feedback">
+              <div *ngIf="description.errors.required">Discrição é obrigatória</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="price">Preço</label>
+            <input type="text" [(ngModel)]="product.price" id="price" name="price" #price="ngModel" required
+              class="form-control" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }"
+              placeholder="Digite o preço">
+            <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
+              <div *ngIf="price.errors.required">Preço é obrigatório</div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-add-car">Salvar</button>
+          <button type="reset" class="btn btn-secondary btn-add-car" (click)="cleanForm(f)">Cancelar</button>
+        </form>
       </div>
-      <div class="form-group">
-        <label for="description">Descrição</label>
-        <input type="text" [(ngModel)]="product.description" id="description" name="description" #description="ngModel" required
-          class="form-control" [ngClass]="{ 'is-invalid': f.submitted && description.invalid }" placeholder="Digite a descrição">
-        <div *ngIf="f.submitted && description.invalid" class="invalid-feedback">
-          <div *ngIf="description.errors.required">Discrição é obrigatória</div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="price">Preço</label>
-        <input type="text" [(ngModel)]="product.price" id="price" name="price" #price="ngModel" required
-          class="form-control" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }" placeholder="Digite o preço">
-        <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
-          <div *ngIf="price.errors.required">Preço é obrigatório</div>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary btn-add-car">Salvar</button>
-      <button type="reset" class="btn btn-secondary btn-add-car" (click)="cleanForm(f)">Cancelar</button>
-    </form>
+    </div>
   </div>
 </div>

@@ -15,6 +15,6 @@ import { ClientCrudComponent } from './client-crud/client-crud.component';
     FormsModule,
     CommonModule
   ],
-  exports: [ClientCrudComponent]
+  exports: []
 })
 export class ClientsModule { }
