@@ -37,8 +37,8 @@
           <div class="form-group">
             <label for="name">Nome</label>
             <input type="text" [(ngModel)]="product.name" id="name" name="name" #name="ngModel" required
-              class="form-control" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"
-              placeholder="Digite o nome">
+              class="form-control" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" placeholder="Digite o nome"
+              maxlength="80">
             <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
               <div *ngIf="name.errors.required">Nome é obrigatório</div>
             </div>
@@ -46,17 +46,13 @@
           <div class="form-group">
             <label for="description">Descrição</label>
             <input type="text" [(ngModel)]="product.description" id="description" name="description"
-              #description="ngModel" required class="form-control"
+              #description="ngModel" class="form-control" maxlength="255"
               [ngClass]="{ 'is-invalid': f.submitted && description.invalid }" placeholder="Digite a descrição">
-            <div *ngIf="f.submitted && description.invalid" class="invalid-feedback">
-              <div *ngIf="description.errors.required">Discrição é obrigatória</div>
-            </div>
           </div>
           <div class="form-group">
             <label for="price">Preço</label>
             <input type="text" [(ngModel)]="product.price" id="price" name="price" #price="ngModel" required
-              class="form-control" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }"
-              placeholder="Digite o preço">
+              class="form-control" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }" placeholder="0,00" >
             <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
               <div *ngIf="price.errors.required">Preço é obrigatório</div>
             </div>

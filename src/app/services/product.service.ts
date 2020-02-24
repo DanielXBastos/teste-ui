@@ -9,7 +9,7 @@ import { Product } from './../models/product';
 })
 export class ProductService {
 
-  url = 'http://localhost:3000/product'; // api rest fake
+  url = 'https://ipgc.findsolucoes.com.br/product'; // api rest fake
 
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }
@@ -47,7 +47,7 @@ export class ProductService {
 
   // utualiza um produto
   updateProduct(product: Product): Observable<Product> {
-    return this.httpClient.put<Product>(this.url + '/' + product.id, JSON.stringify(product), this.httpOptions)
+    return this.httpClient.put<Product>(this.url, JSON.stringify(product), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)

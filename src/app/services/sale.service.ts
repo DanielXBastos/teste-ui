@@ -9,7 +9,7 @@ import { Sale } from './../models/sale';
 })
 export class SaleService {
 
-  url = 'http://localhost:3000/sale'; // api rest fake
+  url = 'https://ipgc.findsolucoes.com.br/sale'; // api rest fake
 
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }
@@ -47,7 +47,7 @@ export class SaleService {
 
   // utualiza uma venda
   updateSale(sale: Sale): Observable<Sale> {
-    return this.httpClient.put<Sale>(this.url + '/' + sale.id, JSON.stringify(sale), this.httpOptions)
+    return this.httpClient.put<Sale>(this.url, JSON.stringify(sale), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)

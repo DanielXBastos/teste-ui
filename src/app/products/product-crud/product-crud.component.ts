@@ -44,7 +44,7 @@ export class ProductCrudComponent implements OnInit {
   // Chama o serviço para obter todos os produtos
   getProducts() {
     this.productService.getProducts().subscribe((product: Product[]) => {
-      this.products = product;
+      this.getCurrentPrice(product);
     });
   }
 
@@ -67,4 +67,16 @@ export class ProductCrudComponent implements OnInit {
     this.product = {} as Product;
   }
 
+  // percorre lista de produtos para encontrar o preço atual
+  getCurrentPrice(products: Product[]) {
+    for (let i = 0; i < products.length; i++) {
+      products[i].priceHistoryList.find(p => {
+        if(p.currentPrice === true){
+          products[i].price = p.price;
+        }
+      });
+    }
+    // Defini a lista de produtos
+    this.products = products;
+  }
 }
