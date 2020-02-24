@@ -4,7 +4,7 @@
     <div class="card list-client">
       <h5 class="card-header">Lista de Clientes</h5>
       <div class="card-body">
-        <p-table [columns]="cols" [value]="clients" [paginator]="true" [rows]="5" [responsive]="true">
+        <p-table [columns]="cols" [value]="clients" [paginator]="true" [rows]="3" [responsive]="true">
           <ng-template pTemplate="header">
             <tr>
               <th *ngFor="let col of cols" scope="col">
@@ -38,8 +38,8 @@
           <div class="form-group">
             <label for="name">Nome</label>
             <input type="text" [(ngModel)]="client.name" id="name" name="name" #name="ngModel" required
-              class="form-control" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"
-              placeholder="Digite o nome">
+              class="form-control" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" placeholder="Digite o nome"
+              maxlength="100">
             <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
               <div *ngIf="name.errors.required">Nome é obrigatório</div>
             </div>
@@ -48,19 +48,16 @@
             <label for="email">E-mail</label>
             <input type="text" [(ngModel)]="client.email" id="email" name="email" #email="ngModel" required
               class="form-control" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
-              placeholder="Digite o e-mail">
+              placeholder="Digite o e-mail" maxlength="200">
             <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
               <div *ngIf="email.errors.required">E-mail é obrigatória</div>
             </div>
           </div>
           <div class="form-group">
             <label for="telefone">Telefone</label>
-            <input type="text" [(ngModel)]="client.telefone" id="telefone" name="telefone" #telefone="ngModel" required
+            <input type="text" [(ngModel)]="client.telefone" id="telefone" name="telefone" #telefone="ngModel"
               class="form-control" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
-              placeholder="Digite o e-mail">
-            <div *ngIf="f.submitted && telefone.invalid" class="invalid-feedback">
-              <div *ngIf="telefone.errors.required">Telefone é obrigatório</div>
-            </div>
+              placeholder="Digite o telefone" maxlength="20">
           </div>
           <button type="submit" class="btn btn-primary btn-add-car">Salvar</button>
           <button type="reset" class="btn btn-secondary btn-add-car" (click)="cleanForm(f)">Cancelar</button>
