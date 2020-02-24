@@ -45,7 +45,6 @@
               <td>{{sale.client.email}}</td>
               <td>{{sale.client.telefone}}</td>
               <td>
-                <button pButton type="button" class="btn btn-warning btn-sm" (click)="getSale(sale)">Ver</button>
                 <button pButton type="button" class="btn btn-danger btn-sm ml-1"
                   (click)="deleteSale(sale)">Deletar</button>
               </td>
@@ -53,32 +52,6 @@
           </ng-template>
         </p-table>
       </div>
-    </div>
-
-    <div class="card selected-sale">
-      <h5 class="header">Venda selecionada</h5>
-      <div>
-        <label>Nome: {{clientVenda.name}}</label><br>
-        <label>E-mail: {{clientVenda.email}}</label><br>
-        <label>Telefone: {{clientVenda.telefone}}</label><br>
-      </div>
-      <p-table [columns]="colsProduct" [value]="productVenda" [paginator]="true" [rows]="5" [responsive]="true">
-        <ng-template pTemplate="header">
-          <tr>
-            <th *ngFor="let col of colsProduct" scope="col">
-              {{col.header}}
-            </th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-product>
-          <tr>
-            <td>{{product.id}}</td>
-            <td>{{product.name}}</td>
-            <td>{{product.description}}</td>
-            <td>{{product.price}}</td>
-          </tr>
-        </ng-template>
-      </p-table>
     </div>
   </div>
 </div>

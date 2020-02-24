@@ -8,31 +8,24 @@ import { Sale } from 'src/app/models/sale';
 import { Product } from './../../models/product';
 import { Client } from './../../models/client';
 
-
-
 @Component({
-  selector: 'app-sale-crud',
-  templateUrl: './sale-crud.component.html',
-  styleUrls: ['./sale-crud.component.css']
+  selector: 'app-sale-report',
+  templateUrl: './sale-report.component.html',
+  styleUrls: ['./sale-report.component.css']
 })
-export class SaleCrudComponent implements OnInit {
+export class SaleReportComponent implements OnInit {
 
   cols: any[];
   colsProduct: any[];
-  selectedClient: Client;
-  selectedProduct: Product;
 
   sale = {} as Sale;
-  saleForm = new Sale();
   sales = {} as Sale[];
-  selectClients = {} as Client[];
-  selectProducts = {} as Product[];
-  productList = {} as Product[];
+  clientVenda = {} as Client;
+  productVenda = {} as Product[];
 
   constructor(private saleService: SaleService, private clientService: ClientService, private productService: ProductService) { }
 
   ngOnInit() {
-    console.log(this.saleForm);
     this.cols = [
       { field: 'id', header: 'Id Compra' },
       { field: 'id', header: 'Id Cliente' },
@@ -49,18 +42,6 @@ export class SaleCrudComponent implements OnInit {
     ];
 
     this.getSales();
-    this.getClientsForSale();
-    this.getProductsForSale();
-  }
-  // define se uma venda será criada ou atualizada
-  saveSale(form: NgForm) {
-
-    this.saleForm.client = this.selectedClient;
-    this.saleForm.productList.push(this.selectedProduct);
-
-    this.saleService.saveSale(this.saleForm).subscribe(() => {
-      this.cleanForm(form);
-    });
   }
 
   // Chama o serviço para obter todos as vendas
@@ -77,25 +58,18 @@ export class SaleCrudComponent implements OnInit {
     });
   }
 
+  // Escolhe uma venda para ser visualizada.
+  getSale(sale: Sale) {
+    this.clientVenda = sale.client;
+    this.productVenda = sale.productList;
+    this.sale = { ...sale };
+  }
+
   // limpa o formulario
   cleanForm(form: NgForm) {
     this.getSales();
     form.resetForm();
     this.sale = {} as Sale;
-  }
-
-  // pega os clientes para a lista de vendas
-  getClientsForSale() {
-    this.clientService.getClients().subscribe((clients: Client[]) => {
-      this.selectClients = clients;
-    });
-  }
-
-  // pega os produtos para a lista de vendas
-  getProductsForSale() {
-    this.productService.getProducts().subscribe((product: Product[]) => {
-      this.selectProducts = product;
-    });
   }
 
 }
