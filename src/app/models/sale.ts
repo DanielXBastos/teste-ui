@@ -1,8 +1,9 @@
 import { Product } from './product';
 import { Client } from './client';
 
-export interface Sale {
+export class Sale {
   id: number;
   client: Client;
-  productList: Product[];
+  initList = new Product('');
+  productList = new Array<Product>();
 }

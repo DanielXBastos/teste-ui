@@ -19,20 +19,22 @@ export class SaleCrudComponent implements OnInit {
 
   cols: any[];
   colsProduct: any[];
-  selectedClient: string[];
-  selectedProduct: string[];
+  selectedClient: Client;
+  selectedProduct: Product;
 
   sale = {} as Sale;
-  sales: Sale[];
+  saleForm = new Sale();
+  sales = {} as Sale[];
   clientVenda = {} as Client;
   selectClients = {} as Client[];
   selectProducts = {} as Product[];
   productVenda = {} as Product[];
-
+  productList = {} as Product[];
 
   constructor(private saleService: SaleService, private clientService: ClientService, private productService: ProductService) { }
 
   ngOnInit() {
+    console.log(this.saleForm);
     this.cols = [
       { field: 'id', header: 'Id Compra' },
       { field: 'id', header: 'Id Cliente' },
@@ -54,15 +56,13 @@ export class SaleCrudComponent implements OnInit {
   }
   // define se uma venda será criada ou atualizada
   saveSale(form: NgForm) {
-    if (this.sale.id !== undefined) {
-      this.saleService.updateSale(this.sale).subscribe(() => {
-        this.cleanForm(form);
-      });
-    } else {
-      this.saleService.saveSale(this.sale).subscribe(() => {
-        this.cleanForm(form);
-      });
-    }
+
+    this.saleForm.client = this.selectedClient;
+    this.saleForm.productList.push(this.selectedProduct);
+
+    this.saleService.saveSale(this.saleForm).subscribe(() => {
+      this.cleanForm(form);
+    });
   }
 
   // Chama o serviço para obter todos as vendas
@@ -84,8 +84,6 @@ export class SaleCrudComponent implements OnInit {
     this.clientVenda = sale.client;
     this.productVenda = sale.productList;
     this.sale = { ...sale };
-    console.log(this.clientVenda);
-    console.log(this.productVenda);
   }
 
   // limpa o formulario

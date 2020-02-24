@@ -1,9 +1,13 @@
 import { PriceHistory } from './PriceHistory';
 
-export interface Product {
+export class Product {
   id: number;
   name: string;
   description: string;
   price: number;
   priceHistoryList: PriceHistory[];
+
+  constructor(name?: string) {
+    this.name = name;
+  }
 }
